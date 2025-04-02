@@ -1,0 +1,29 @@
+version: '3'
+
+networks:
+  honeycomb_drone_network:
+services:
+  alloy:
+    extends:
+      file: ./alloy/docker/docker-compose.yml
+      service: alloy
+  grafana:
+      extends:
+        file: ./grafana/docker/docker-compose.yml
+        service: grafana
+  loki:
+    extends:
+      file: ./loki/docker/docker-compose.yml
+      service: loki
+  prometheus:
+    extends:
+      file: ./prometheus/docker/docker-compose.yml
+      service: prometheus
+  tempo:
+    extends:
+      file: ./tempo/docker/docker-compose.yml
+      service: tempo
+  mimir:
+    extends:
+      file: ./mimir/docker/docker-compose.yml
+      service: mimir

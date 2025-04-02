@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  loki:
+    container_name: loki
+    image: grafana/loki:latest
+    networks:
+      - honeycomb_drone_network
+    restart: unless-stopped
+    user: root
+
+    ports:
+      - '3100:3100'
+    volumes:
+      - './volumes/data:/var/lib/loki'
+    command: -config.file=/etc/loki/local-config.yaml
+
+volumes:
+  loki_storage: {}
+

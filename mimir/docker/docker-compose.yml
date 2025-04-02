@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  mimir:
+    container_name: mimir
+    image: grafana/mimir
+    networks:
+      - honeycomb_drone_network
+    restart: unless-stopped
+

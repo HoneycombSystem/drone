@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  prometheus:
+    container_name: prometheus
+    image: prom/prometheus
+    networks:
+      - honeycomb_drone_network
+    restart: unless-stopped
+
+    ports:
+      - "9090:9090"
+    command:
+    - --web.enable-remote-write-receiver
+    - --config.file=/etc/prometheus/prometheus.yml
+
+
